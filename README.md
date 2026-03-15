@@ -25,6 +25,28 @@ claude --dangerously-skip-permissions
 
 The workspace is automatically inferred from your current directory.
 
+## Setup
+
+Before starting the container for the first time, make sure `~/.claude/settings.json` exists on your host — Docker requires the file to be present before it can bind-mount it:
+
+```bash
+mkdir -p ~/.claude && touch ~/.claude/settings.json
+```
+
+The file is mounted read-write, so any settings changes made inside the container are reflected on your host and vice versa.
+
+## Applying changes to the container
+
+After editing `Dockerfile` or `devcontainer.json`, rebuild and restart the container:
+
+```bash
+# Rebuild the image and recreate the container
+devcontainer up --workspace-folder . --remove-existing-container --build-no-cache
+
+# Or just recreate without a full rebuild (e.g. after devcontainer.json changes only)
+devcontainer up --workspace-folder . --remove-existing-container
+```
+
 ## What's inside
 
 - **Node 20** base image with zsh, git, fzf, gh, and common dev tools
