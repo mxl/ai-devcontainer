@@ -69,6 +69,9 @@ for domain in \
     "api.anthropic.com" \
     "sentry.io" \
     "statsig.anthropic.com" \
+    "api.openai.com" \
+    "auth.openai.com" \
+    "platform.openai.com" \
     "statsig.com" \
     "marketplace.visualstudio.com" \
     "vscode.blob.core.windows.net" \
