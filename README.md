@@ -7,6 +7,29 @@ A sandboxed development container for running [Claude Code](https://code.claude.
 - [Docker](https://www.docker.com/)
 - [Dev Container CLI](https://github.com/devcontainers/cli): `npm install -g @devcontainers/cli`
 
+## Setup
+
+To use this setup in another repository:
+
+1. Copy the `.devcontainer/` directory into the root of your project.
+2. To use the host helper commands, either add `source /path/to/ai-devcontainer/env.sh` to your `~/.zshrc` or `~/.bashrc`, or run that `source` command manually in the current shell.
+3. Before starting the container for the first time, make sure `~/.claude/settings.json` and `~/.codex/config.toml` exist on your host. Docker requires bind-mounted files to be present before the container starts:
+
+```bash
+mkdir -p ~/.claude && touch ~/.claude/settings.json
+mkdir -p ~/.codex && touch ~/.codex/config.toml
+```
+
+These files are mounted read-write, so settings changes made inside the container are reflected on your host and vice versa.
+
+4. From the target project's root, start the container:
+
+```bash
+devcontainer up --workspace-folder .
+```
+
+Codex stores its state under `~/.codex` inside the container. Claude stores its state under `~/.claude`. GitHub CLI uses `~/.config/gh`. All three are also persisted with named Docker volumes, so authentication and the rest of each tool's local state survive container rebuilds.
+
 ## Usage
 
 Source the included shell script to get `claude` and `codex` commands that start the devcontainer and launch the selected CLI in one step, plus `claude-no-dc` / `codex-no-dc` for launching the host-installed CLIs directly:
@@ -34,19 +57,6 @@ devcontainer exec /bin/zsh
 ```
 
 The workspace is automatically inferred from your current directory.
-
-## Setup
-
-Before starting the container for the first time, make sure `~/.claude/settings.json` and `~/.codex/config.toml` exist on your host. Docker requires bind-mounted files to be present before the container starts:
-
-```bash
-mkdir -p ~/.claude && touch ~/.claude/settings.json
-mkdir -p ~/.codex && touch ~/.codex/config.toml
-```
-
-These files are mounted read-write, so settings changes made inside the container are reflected on your host and vice versa.
-
-Codex stores its state under `~/.codex` inside the container. Claude stores its state under `~/.claude`. GitHub CLI uses `~/.config/gh`. All three are also persisted with named Docker volumes, so authentication and the rest of each tool's local state survive container rebuilds without sharing your host `gh` credentials with the container.
 
 ## Git identity inside the container
 
