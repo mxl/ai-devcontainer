@@ -72,6 +72,7 @@ for domain in \
     "api.openai.com" \
     "auth.openai.com" \
     "platform.openai.com" \
+    "chatgpt.com" \
     "statsig.com" \
     "marketplace.visualstudio.com" \
     "vscode.blob.core.windows.net" \
