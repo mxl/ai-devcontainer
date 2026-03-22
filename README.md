@@ -117,6 +117,10 @@ When prompted:
 gh auth status
 gh repo view
 ```
+4. Configure git to use GitHub CLI as a credential helper:
+```bash
+gh auth setup-git
+```
 
 For branch safety, also enable branch protection or a ruleset on GitHub for `main`/`master` and any other protected branches:
 
