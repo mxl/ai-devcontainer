@@ -140,6 +140,18 @@ devcontainer up --workspace-folder . --remove-existing-container --build-no-cach
 devcontainer up --workspace-folder . --remove-existing-container
 ```
 
+## Why Codex `config.toml` is not bind-mounted
+
+This devcontainer does not mount `${HOME}/.codex/config.toml` into `/home/node/.codex/config.toml`.
+
+Codex persists configuration with an atomic write pattern: it writes a temporary file and then replaces `config.toml`. A single-file bind mount makes `/home/node/.codex/config.toml` its own mount target inside the container, which can cause the final replace step to fail with a cross-device rename error such as `EXDEV` or `Invalid cross-device link`.
+
+That failure shows up in Codex as errors like `failed to persist config.toml` when changing the default model, trust settings, or other saved preferences.
+
+To avoid that, the devcontainer mounts the whole `/home/node/.codex` directory as a writable volume instead of bind-mounting the config file itself. This lets Codex manage `config.toml` normally and keeps atomic saves working.
+
+If host-side persistence is needed, mount the entire `${HOME}/.codex` directory to `/home/node/.codex`. Do not mount only `config.toml`.
+
 ## What's inside
 
 - **Node 20** base image with zsh, git, fzf, gh, and common dev tools
