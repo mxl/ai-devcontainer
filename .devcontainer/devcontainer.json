@@ -54,10 +54,11 @@
     "NODE_OPTIONS": "--max-old-space-size=4096",
     "CLAUDE_CONFIG_DIR": "/home/node/.claude",
     "CODEX_HOME": "/home/node/.codex",
-    "POWERLEVEL9K_DISABLE_GITSTATUS": "true"
+    "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
+    "DEVCONTAINER_FIREWALL_ENABLED": "false"
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",
-  "postStartCommand": "sudo /usr/local/bin/init-firewall.sh",
+  "postStartCommand": "if [ \"$DEVCONTAINER_FIREWALL_ENABLED\" = \"true\" ]; then sudo /usr/local/bin/init-firewall.sh; else echo 'Skipping devcontainer firewall'; fi",
   "waitFor": "postStartCommand"
 }

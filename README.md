@@ -167,3 +167,5 @@ If host-side persistence is needed, mount the entire `${HOME}/.codex` directory 
   - Anthropic API
   - OpenAI API and authentication/static endpoints needed by Codex
   - Sentry, Statsig, VS Code marketplace
+
+The devcontainer firewall is disabled by default. To enable it, set `DEVCONTAINER_FIREWALL_ENABLED=true` in `.devcontainer/devcontainer.json` before starting the container.
