@@ -27,10 +27,26 @@ codex() {
     codex --yolo "$@"
 }
 
+opencode() {
+  local workspace="$PWD"
+
+  echo "Starting devcontainer at: $workspace"
+  devcontainer up --workspace-folder "$workspace" || return 1
+
+  echo "Launching OpenCode..."
+  devcontainer exec \
+    --workspace-folder "$workspace" \
+    opencode "$@"
+}
+
 claude-no-dc() {
   command claude "$@"
 }
 
 codex-no-dc() {
   command codex "$@"
+}
+
+opencode-no-dc() {
+  command opencode "$@"
 }

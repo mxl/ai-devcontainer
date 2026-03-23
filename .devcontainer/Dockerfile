@@ -5,6 +5,7 @@ ENV TZ="$TZ"
 
 ARG CLAUDE_CODE_VERSION=latest
 ARG CODEX_VERSION=latest
+ARG OPENCODE_VERSION=latest
 
 # Install basic development tools and iptables/ipset
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -44,8 +45,8 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
 ENV DEVCONTAINER=true
 
 # Create workspace and config directories and set permissions
-RUN mkdir -p /workspace /home/node/.claude /home/node/.codex /home/node/.config/gh && \
-  chown -R node:node /workspace /home/node/.claude /home/node/.codex /home/node/.config
+RUN mkdir -p /workspace /home/node/.claude /home/node/.codex /home/node/.config/opencode /home/node/.local/share/opencode /home/node/.local/state /home/node/.local/bin /home/node/.config/gh && \
+  chown -R node:node /workspace /home/node/.claude /home/node/.codex /home/node/.config /home/node/.local
 
 WORKDIR /workspace
 
@@ -87,6 +88,13 @@ RUN if [ "$CODEX_VERSION" = "latest" ]; then \
       npm install -g @openai/codex; \
     else \
       npm install -g "@openai/codex@$CODEX_VERSION"; \
+    fi
+
+# Install OpenCode
+RUN if [ "$OPENCODE_VERSION" = "latest" ]; then \
+      curl -fsSL https://opencode.ai/install | bash; \
+    else \
+      npm install -g "opencode-ai@$OPENCODE_VERSION"; \
     fi
 
 # Copy and set up firewall script

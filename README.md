@@ -1,6 +1,6 @@
-# Claude + Codex Devcontainer
+# AI Agents Devcontainer
 
-A sandboxed development container for running [Claude Code](https://code.claude.com) and [OpenAI Codex](https://github.com/openai/codex) with network isolation via firewall rules.
+A sandboxed development container for running [Claude Code](https://code.claude.com), [OpenAI Codex](https://github.com/openai/codex), and [OpenCode](https://opencode.ai) with network isolation via firewall rules.
 
 ## Requirements
 
@@ -28,11 +28,11 @@ These files are mounted read-write, so settings changes made inside the containe
 devcontainer up --workspace-folder .
 ```
 
-Codex stores its state under `~/.codex` inside the container. Claude stores its state under `~/.claude`. GitHub CLI uses `~/.config/gh`. All three are also persisted with named Docker volumes, so authentication and the rest of each tool's local state survive container rebuilds.
+Codex stores its state under `~/.codex` inside the container. Claude stores its state under `~/.claude`. OpenCode stores config under `~/.config/opencode` and data under `~/.local/share/opencode`. GitHub CLI uses `~/.config/gh`. All of them are persisted with bind mounts and/or named Docker volumes, so authentication and local state survive container rebuilds.
 
 ## Usage
 
-Source the included shell script to get `claude` and `codex` commands that start the devcontainer and launch the selected CLI in one step, plus `claude-no-dc` / `codex-no-dc` for launching the host-installed CLIs directly:
+Source the included shell script to get `claude`, `codex`, and `opencode` commands that start the devcontainer and launch the selected CLI in one step, plus `claude-no-dc`, `codex-no-dc`, and `opencode-no-dc` for launching the host-installed CLIs directly:
 
 ```bash
 # Add to your ~/.zshrc or ~/.bashrc
@@ -40,7 +40,7 @@ source /path/to/env.sh
 
 # Run from any project directory
 cd ~/my-project
-claude # OR codex
+claude # OR codex OR opencode
 
 # Pass additional Claude flags
 claude --help
@@ -48,9 +48,13 @@ claude --help
 # Pass additional Codex flags
 codex --help
 
+# Pass additional OpenCode flags
+opencode --help
+
 # Bypass the devcontainer and run the host CLI directly
 claude-no-dc --help
 codex-no-dc --help
+opencode-no-dc --help
 
 # Run an arbitrary command inside the devcontainer from the project root
 devcontainer exec /bin/zsh
@@ -161,6 +165,7 @@ If host-side persistence is needed, mount the entire `${HOME}/.codex` directory 
 - **Node 20** base image with zsh, git, fzf, gh, and common dev tools
 - **Claude** installed via the native installer (`curl -fsSL https://claude.ai/install.sh | bash`)
 - **Codex** installed globally from npm (`npm install -g @openai/codex`)
+- **OpenCode** installed via the native installer (`curl -fsSL https://opencode.ai/install | bash`)
 - **Firewall** (`init-firewall.sh`) that restricts outbound traffic to an allowlist:
   - GitHub
   - npm registry
