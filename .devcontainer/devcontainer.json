@@ -13,7 +13,8 @@
   },
   "runArgs": [
     "--cap-add=NET_ADMIN",
-    "--cap-add=NET_RAW"
+    "--cap-add=NET_RAW",
+    "--add-host=host.docker.internal:host-gateway"
   ],
   "customizations": {
     "vscode": {
@@ -58,7 +59,9 @@
     "CLAUDE_CONFIG_DIR": "/home/node/.claude",
     "CODEX_HOME": "/home/node/.codex",
     "OPENCODE_CONFIG_DIR": "/home/node/.config/opencode",
+    "OPENCODE_CONFIG": "/workspace/.devcontainer/opencode.json",
     "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
+    "CLIPROXYAPI_URL": "http://host.docker.internal:8317",
     "DEVCONTAINER_FIREWALL_ENABLED": "false"
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",

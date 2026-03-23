@@ -62,6 +62,36 @@ devcontainer exec /bin/zsh
 
 The workspace is automatically inferred from your current directory.
 
+## OpenCode CLIProxy Setup
+
+The repository includes a default OpenCode config in `.devcontainer/opencode.json` that points OpenCode at CLIProxy through `http://host.docker.internal:8317/v1` from inside the devcontainer.
+
+Create a local API key file before using the proxy-backed OpenCode config:
+
+```bash
+cp .devcontainer/.cliproxyapi-key.example .devcontainer/.cliproxyapi-key
+$EDITOR .devcontainer/.cliproxyapi-key
+```
+
+Add only the real API key to `.devcontainer/.cliproxyapi-key`. That file is ignored by git and is loaded by OpenCode from `.devcontainer/opencode.json` using a file substitution.
+
+If your current devcontainer was created before the proxy config was added, recreate it once so `OPENCODE_CONFIG` and the host alias are available:
+
+```bash
+devcontainer up --workspace-folder . --remove-existing-container
+```
+
+If the container is already using the current `.devcontainer/devcontainer.json`, editing `.devcontainer/.cliproxyapi-key` does not require a rebuild.
+
+You can verify the proxy wiring from inside the container with:
+
+```bash
+devcontainer exec --workspace-folder . printenv OPENCODE_CONFIG
+devcontainer exec --workspace-folder . curl http://host.docker.internal:8317/v1/models
+```
+
+When those checks succeed, running `opencode` from the project root will use the proxy-backed provider defined in `.devcontainer/opencode.json`.
+
 ## Git identity inside the container
 
 This devcontainer does not mount your host `~/.gitconfig`, so you should configure `git user.name` and `git user.email` inside the container before creating commits.

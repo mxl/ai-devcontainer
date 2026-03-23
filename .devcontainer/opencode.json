@@ -1,0 +1,549 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "proxy" : {
+      "models" : {
+        "claude-3-5-haiku-20241022" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude 3 5 Haiku 20241022"
+        },
+        "claude-3-7-sonnet-20250219" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude 3 7 Sonnet 20250219"
+        },
+        "claude-haiku-4-5-20251001" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude Haiku 4 5 20251001"
+        },
+        "claude-opus-4-1-20250805" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude Opus 4 1 20250805"
+        },
+        "claude-opus-4-5-20251101" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude Opus 4 5 20251101"
+        },
+        "claude-opus-4-6" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude Opus 4 6"
+        },
+        "claude-opus-4-20250514" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude Opus 4 20250514"
+        },
+        "claude-sonnet-4-5-20250929" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude Sonnet 4 5 20250929"
+        },
+        "claude-sonnet-4-6" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude Sonnet 4 6"
+        },
+        "claude-sonnet-4-20250514" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 200000,
+            "output" : 64000
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Claude Sonnet 4 20250514"
+        },
+        "coder-model" : {
+          "attachment" : false,
+          "limit" : {
+            "context" : 128000,
+            "output" : 16384
+          },
+          "modalities" : {
+            "input" : [
+              "text"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Coder Model"
+        },
+        "gpt-5" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5-codex" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5 Codex",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5-codex-mini" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5 Codex Mini",
+          "options" : {
+            "reasoning" : {
+              "effort" : "low"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.1" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.1",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.1-codex" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.1 Codex",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.1-codex-max" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.1 Codex Max",
+          "options" : {
+            "reasoning" : {
+              "effort" : "high"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.1-codex-mini" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.1 Codex Mini",
+          "options" : {
+            "reasoning" : {
+              "effort" : "low"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.2" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.2",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.2-codex" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.2 Codex",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.3-codex" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.3 Codex",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.3-codex-spark" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.3 Codex Spark",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.4" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.4",
+          "options" : {
+            "reasoning" : {
+              "effort" : "medium"
+            }
+          },
+          "reasoning" : true
+        },
+        "gpt-5.4-mini" : {
+          "attachment" : true,
+          "limit" : {
+            "context" : 400000,
+            "output" : 32768
+          },
+          "modalities" : {
+            "input" : [
+              "text",
+              "image"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Gpt 5.4 Mini",
+          "options" : {
+            "reasoning" : {
+              "effort" : "low"
+            }
+          },
+          "reasoning" : true
+        },
+        "qwen3-coder-flash" : {
+          "attachment" : false,
+          "limit" : {
+            "context" : 128000,
+            "output" : 16384
+          },
+          "modalities" : {
+            "input" : [
+              "text"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Qwen3 Coder Flash"
+        },
+        "qwen3-coder-plus" : {
+          "attachment" : false,
+          "limit" : {
+            "context" : 128000,
+            "output" : 16384
+          },
+          "modalities" : {
+            "input" : [
+              "text"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Qwen3 Coder Plus"
+        },
+        "vision-model" : {
+          "attachment" : false,
+          "limit" : {
+            "context" : 128000,
+            "output" : 16384
+          },
+          "modalities" : {
+            "input" : [
+              "text"
+            ],
+            "output" : [
+              "text"
+            ]
+          },
+          "name" : "Vision Model"
+        }
+      },
+      "name" : "Proxy",
+      "npm" : "@ai-sdk/anthropic",
+      "options" : {
+        "apiKey" : "{file:/workspace/.devcontainer/.cliproxyapi-key}",
+        "baseURL": "http://host.docker.internal:8317/v1"
+      }
+    }
+  },
+  "model": "proxy/gpt-5.4"
+}
